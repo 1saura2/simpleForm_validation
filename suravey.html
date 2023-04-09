@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey_Form Document</title>
+    <h1>Survey Registration Form</h1>
+    <link rel="stylesheet" type="text/css" href="survey.css">
+    <script type="text/javascript">
+        function DispData(){
+
+            var Inputname=document.getElementById("txtName");
+            var Inputmdlename=document.getElementById("txtMiddleName");
+            var InputSureName=document.getElementById("txtSureName"); 
+            var InputEmail=document.getElementById("txtEmail")                   
+            var InputspnName=document.getElementById("spnName");
+            var InputspnMidName=document.getElementById("spnMiddlename");
+            var InputspnsurName=document.getElementById("spnSurename");
+            var InputCmt=document.getElementById("txtAbout")
+            var InpAddress=document.getElementById("txtAddress")
+
+            gender="";
+            familytpy="";
+            srcofinc="";
+            facilities="";
+            budgetDoubt="";
+
+            var indx1=InputEmail.value.indexOf('@');
+            var indx2=InputEmail.value.lastIndexOf('@');
+            var indx3=InputEmail.value.lastIndexOf('.');
+
+            if(Inputname.value==""||InputSureName.value==""||InputEmail.value==""){
+                alert("Please Fill All Compulsory(*) Information Below!!!");
+            }
+            else if(indx1==-1){
+                alert("Enter The Valid Name Or Email");
+            }
+            
+            else if(indx1 != indx2){
+                alert("Enter The Valid Name Or Email");
+            }
+            else if(indx1 > indx3){
+                alert("Enter The Valid Name Or Email");
+
+            }
+            else if(indx3 == InputEmail.length-1){
+                alert("Enter The Valid Name Or Email");
+
+            }
+            else{
+            spnName.innerHTML=Inputname.value;
+            spnMiddlename.innerHTML=Inputmdlename.value;
+            spnSurename.innerHTML=InputSureName.value;
+            spnComment.innerHTML=InputCmt.value;
+            spnEmail.innerHTML=InputEmail.value;
+            spnAddress.innerHTML=InpAddress.value;
+
+            var selecterng=document.getElementById("selerng");
+            spnErnPerMth.innerHTML=selecterng.value;
+
+            var genderArray=document.getElementsByName("rbGender");
+            for(var i=0;i<genderArray.length;i++){
+                if(genderArray[i].checked==true){
+                    gender=genderArray[i].value;
+                }
+            }
+            spnGender.innerHTML=gender;
+
+        var famTypArray=document.getElementsByName("txt1");
+        for(var i=0;i<famTypArray.length;i++){
+            if(famTypArray[i].checked==true){
+                familytpy=famTypArray[i].value;
+            }
+        }
+        spnFamilyType.innerHTML=familytpy;
+
+        var srcofincArray=document.getElementsByName("txt2");
+        for(var i=0;i<srcofincArray.length;i++){
+            if(srcofincArray[i].checked==true){
+                srcofinc=srcofincArray[i].value;
+            }
+        }
+
+        spnIncome.innerHTML=srcofinc;
+
+        var faciArray=document.getElementsByName("txt3");
+        for(var i=0;i<faciArray.length;i++){
+            if(faciArray[i].checked==true){
+                facilities=faciArray[i].value;
+
+            }
+        }
+
+        spnFacility.innerHTML=facilities;
+
+        var budgetArray=document.getElementsByName("txtInt4");
+        for(var i=0;i<budgetArray.length;i++){
+            if(budgetArray[i].checked==true){
+                budgetDoubt=budgetArray[i].value;
+
+            }
+        }
+        spnBudgetDbt.innerHTML=budgetDoubt;
+    } 
+        }
+
+    </script>
+</head>
+<body>
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tr>
+            <td>Input Your Data Here</td>
+            <td>Data You Entered</td>
+        </tr>
+        <tr>
+            <td>
+                <table border="1" cellspacing="0" cellpadding="1">
+                        <tr>Public Detail Information </tr>
+                        
+                        <tr>
+                            <td>Name*</td>
+                            <td><input type="text" id="txtName" placeholder="Enter Name"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Middle Name</td>
+                            <td><input type="text" id="txtMiddleName" placeholder="Enter Middle Name"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Surename*</td>
+                            <td><input type="text" id="txtSureName" placeholder="Enter surename"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Email*</td>
+                            <td><input type="text" id="txtEmail" placeholder="Enter Email"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Gender</td>
+                            <td><input type="radio" name="rbGender" value="male">Male<input type="radio" name="rbGender"
+                                    value="female">Female<input type="radio" name="rbGender" value="others">Others</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td><input type="text" id="txtAddress" placeholder="Enter Address"></td>
+                        </tr>
+
+                        <tr>
+                            <td>1. What type family mamber do you have?</td>
+                            <td><input type="radio" name="txt1" value="joint family">Joint family<input type="radio" name="txt1" value="Small family">Small family<input type="radio" name="txt1" value="Single">Single</td>  <!--txtInt-->
+                        </tr>
+
+                        <tr>
+                            <td>2. What source of income on your family?</td>
+                            <td><input type="radio" name="txt2" value="office">Office<input type="radio" name="txt2" value="Agriculture">Agriculture<input type="radio" name="txt2" value="Business">Business</td>
+                        </tr>
+
+                        <tr>
+                            <td>3. Earning per month?</td>
+                            <td><select size="1" id="selerng">
+                                    <option value="below 10,000">below 10,000</option>
+                                    <option value="Above 10,000 and below 20,000">Above 10,000 and below 20,000</option>
+                                    <option value="Above 20,000 and below 30,000">Above 20,000 and below 30,000</option>
+                                    <option value="Above 30,000 and below 40,000">Above 30,000 and below 40,000</option>
+                                    <option value="Above 40,000 and below 50,000">Above 40,000 and below 50,000</option>
+                                    <option value="Above 50,000 and below 60,000">Above 50,000 and below 60,000</option>
+                                    <option value="Above 60,000 and below 70,000">Above 60,000 and below 70,000</option>
+                                    <option value="Above 70,000 and below 80,000">Above 70,000 and below 80,000</option>
+                                    <option value="Above 80,000 and below 90,000">Above 80,000 and below 90,000</option>
+                                    <option value="Above 90,000 and below 100,000">Above 90,000 and below 100,000</option>
+                                    <option value="Above 100,000">Above 100,000</option>
+                                </select></td>
+                            </tr>
+                        
+                        <tr>
+                        <td>4. Facilities access to hospital,water,electricity?</td>
+                        <td><input type="radio" name="txt3" value="Yes">Yes<input type="radio" name="txt3" value="No">No</td>
+                        </tr>
+
+                        <tr>
+                            <td>5. If you have comment on government work?</td>
+                            <td><textarea id="txtAbout" placeholder="Your Information"></textarea></td>
+                        </tr>
+                            <td> 6. Do you think government expending sufficent budget for economic development?</td>
+                            <td><input type="radio" name="txtInt4" value="Yes">Yes<input type="radio" name="txtInt4" value="No">No</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="submit" onclick="DispData()"></td>
+                        </tr>
+
+                </table>
+            </td>
+
+            <td>
+                <table border="1" cellpaddiing="1" cellspacing="0">
+                    <tr>
+                        <td>Name:</td>
+                        <td><span id="spnName"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Middle Name:</td>
+                        <td><span id="spnMiddlename"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Surename:</td>
+                        <td><span id="spnSurename"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Email:</td>
+                        <td><span id="spnEmail"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Gender:</td>
+                        <td><span id="spnGender"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Address</td>
+                        <td><span id="spnAddress"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Family Type:</td>
+                        <td><span id="spnFamilyType"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>source Of Income:</td>
+                        <td><span id="spnIncome"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Earning/month:</td>
+                        <td><span id="spnErnPerMth"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Facilities:</td>
+                        <td><span id="spnFacility"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Comment:</td>
+                        <td><span id="spnComment"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Budget Doubt:</td>
+                        <td><span id="spnBudgetDbt"></span></td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>   
+</body>
+</html>

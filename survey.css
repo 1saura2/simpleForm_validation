@@ -1,0 +1,18 @@
+*{
+    margin: 0px;
+    padding: 5px;
+    margin-left: 5px;
+}
+h1{
+    color: white;
+    margin-left: 350px;
+    margin-top: 15px;
+}
+td{
+    background-color:#926AA6;
+}
+body{
+    color: white;
+    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('survey.jpg');
+    background-image: 100vh;
+}
