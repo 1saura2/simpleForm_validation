@@ -1,2 +1,2 @@
 # simpleForm_validation
-using basic javascript
+Using html,css and basic javascript
